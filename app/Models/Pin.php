@@ -17,5 +17,9 @@ class Pin extends Model
         'disregard'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

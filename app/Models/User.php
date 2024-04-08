@@ -32,6 +32,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function pins()
+    {
+        return $this->hasMany(Pin::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *

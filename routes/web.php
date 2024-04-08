@@ -12,7 +12,7 @@ Route::get('/', function () {
 //        'laravelVersion' => Application::VERSION,
 //        'phpVersion' => PHP_VERSION,
 //    ]);
-    $pins = \App\Models\pin::all();
+    $pins = \App\Models\Pin::all();
 
     dd($pins[0]);
 });
