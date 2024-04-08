@@ -19,7 +19,7 @@ class PinFactory extends Factory
      */
     public function definition(): array
     {
-        $eventTypes = ['alert', 'warning', 'concert', 'deals', 'recreational', 'tourist attraction'];
+        $eventTypes = config('pinEventTypes.eventTypes');
         return [
             'user_id'=> User::factory(),
             'event_type'=> fake()->randomElement($eventTypes),
