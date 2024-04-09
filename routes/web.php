@@ -6,16 +6,23 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-//    return Inertia::render('Welcome', [
-//        'canLogin' => Route::has('login'),
-//        'canRegister' => Route::has('register'),
+    return Inertia::render('Auth/Login', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'isGuest' => Route::has('guest'),
 //        'laravelVersion' => Application::VERSION,
 //        'phpVersion' => PHP_VERSION,
-//    ]);
-    $pins = \App\Models\Pin::all();
-
-    dd($pins[0]);
+    ]);
+//    return Inertia::render('Auth/Login');
+//    $pins = \App\Models\Pin::all();
+//
+//    dd($pins[0]);
 });
+
+//! Name the route else Ziggy won't  recognize the route.
+Route::get('guest', function (){
+    return Inertia::render('Guest');
+})->name('guest');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
