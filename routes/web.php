@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Pin;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,7 +22,9 @@ Route::get('/', function () {
 
 //! Name the route else Ziggy won't  recognize the route.
 Route::get('guest', function (){
-    return Inertia::render('Guest');
+    return Inertia::render('Guest',[
+        'pins'=> Pin::all(),
+    ]);
 })->name('guest');
 
 Route::get('/dashboard', function () {
