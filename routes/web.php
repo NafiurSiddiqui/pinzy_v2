@@ -11,10 +11,9 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'isGuest' => Route::has('guest'),
-//        'laravelVersion' => Application::VERSION,
-//        'phpVersion' => PHP_VERSION,
+
     ]);
-//    return Inertia::render('Auth/Login');
+
 //    $pins = \App\Models\Pin::all();
 //
 //    dd($pins[0]);

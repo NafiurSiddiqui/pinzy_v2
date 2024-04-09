@@ -1,13 +1,15 @@
 <script setup="ts">
 
-import ContentWrapper from "@/Layouts/ContentWrapper.vue";
+import ContentLayout from "@/Layouts/ContentLayout.vue";
 import Sidebar from "@/Layouts/Sidebar.vue";
 import MapHolder from "@/Layouts/MapHolder.vue";
+
+
 </script>
 
 <template>
-    <ContentWrapper>
+    <ContentLayout>
         <Sidebar/>
         <MapHolder/>
-    </ContentWrapper>
+    </ContentLayout>
 </template>
