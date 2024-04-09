@@ -23,13 +23,15 @@ Route::get('/', function () {
 //! Name the route else Ziggy won't  recognize the route.
 Route::get('guest', function (){
     return Inertia::render('Guest',[
-        'pins'=> Pin::all(),
+//        'pins' => Pin::all(), //this only queries for pins not the relationship
+        'pins' => Pin::with('user')->get(), //This also solves n + 1 issue. The name 'user' is a method we have inside the 'Pin' model. Still, perform limitation on this query, what if you had millions user? use pagination or something.
+        //you can also make a guard by disabling lazyLoading. go ahead and uncomment, the preventLazyLoading() method inside AppServiceProvider.
     ]);
 })->name('guest');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return Inertia::render('Dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
