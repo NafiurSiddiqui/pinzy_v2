@@ -1,8 +1,6 @@
 <script setup="ts">
 import {usePage, Head} from "@inertiajs/vue3";
 
-// const pins= usePage().props.pins;
-// const pins= usePage().props.pins;
 defineProps({
     pins: Array
 })
