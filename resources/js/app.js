@@ -1,10 +1,10 @@
 import "./bootstrap";
 import "../css/app.css";
-import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/vue3";
+import {createApp, h} from "vue";
+import {createInertiaApp} from "@inertiajs/vue3";
 import PrimeVue from "primevue/config";
-import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import { ZiggyVue } from "../../vendor/tightenco/ziggy";
+import {resolvePageComponent} from "laravel-vite-plugin/inertia-helpers";
+import {ZiggyVue} from "../../vendor/tightenco/ziggy";
 import InputText from "primevue/inputtext";
 import FloatLabel from "primevue/floatlabel";
 import Toast from "primevue/toast";
@@ -20,8 +20,8 @@ createInertiaApp({
             `./Pages/${name}.vue`,
             import.meta.glob("./Pages/**/*.vue"),
         ),
-    setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
+    setup({el, App, props, plugin}) {
+        return createApp({render: () => h(App, props)})
             .use(plugin)
             .use(ZiggyVue)
             .use(PrimeVue, {
@@ -34,10 +34,10 @@ createInertiaApp({
                     },
                     Button: {
                         root: {
-                            class: "btn-user-input-login w-full mb-3 h-10 rounded font-semibold text-m text-zinc-50   bg-green-400  transition-colors hover:bg-green-500",
+                            class: "btn-user-input-login w-full mb-3 h-10 rounded font-semibold text-m text-zinc-50  bg-green-400  transition-colors hover:bg-green-500",
                         },
-                        label: { class: "text-white font-bold text-xl" },
-                        icon: { class: "text-white text-2xl" },
+                        label: {class: "text-white font-bold text-xl"},
+                        icon: {class: "text-white text-2xl"},
                     },
                 },
             })

@@ -1,9 +1,9 @@
 <script setup>
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import {Head, useForm} from "@inertiajs/vue3";
 import FormLayout from "@/Layouts/FormLayout.vue";
 import FormPinzy from "@/Components/FormPinzy.vue";
 import InputFloatingLabel from "@/Components/InputFloatingLabel.vue";
+import LoginOptions from "@/Components/LoginOptions.vue";
 
 const form = useForm({
     name: "",
@@ -21,7 +21,7 @@ const submit = () => {
 
 <template>
     <FormLayout>
-        <Head title="Register" />
+        <Head title="Register"/>
 
         <FormPinzy submission="submit">
             <InputFloatingLabel
@@ -114,22 +114,28 @@ const submit = () => {
             <!--                />-->
             <!--            </div>-->
 
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
-                </Link>
+            <!--            <div class="flex items-center justify-end mt-4">-->
+            <!--                <Link-->
+            <!--                    :href="route('login')"-->
+            <!--                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"-->
+            <!--                >-->
+            <!--                    Already registered?-->
+            <!--                </Link>-->
 
-                <PrimaryButton
-                    class="ms-4"
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    Register
-                </PrimaryButton>
-            </div>
+            <Button type="submit"> Register</Button>
+            <!--            <TextLink route-url="login"> Already registered?</TextLink>-->
+            <!--                <PrimaryButton-->
+            <!--                    class="ms-4"-->
+            <!--                    :class="{ 'opacity-25': form.processing }"-->
+            <!--                    :disabled="form.processing"-->
+            <!--                >-->
+            <!--                    Register-->
+            <!--                </PrimaryButton>-->
+            <!--            </div>-->
         </FormPinzy>
+        <LoginOptions route-url="login">
+            Login
+        </LoginOptions>
     </FormLayout>
+
 </template>

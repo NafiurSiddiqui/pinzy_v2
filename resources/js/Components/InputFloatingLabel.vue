@@ -1,6 +1,6 @@
 <script setup>
 import InputLabel from "@/Components/InputLabel.vue";
-import { ref } from "vue";
+import {ref} from "vue";
 import InputError from "@/Components/InputError.vue";
 
 defineProps({
@@ -26,12 +26,17 @@ defineProps({
     errorMessage: {
         type: String,
         required: true,
+        default: ''
     },
 });
+
+
 const model = defineModel({
     type: String,
     required: true,
 });
+
+// const model = ref(null);
 
 const input = ref(null);
 </script>
@@ -47,7 +52,7 @@ const input = ref(null);
             ref="input"
             :required="required"
         />
-        <InputLabel :value-for="labelValueFor" :value="labelValue" />
-        <InputError class="mt-2" :message="errorMessage" />
+        <InputLabel :value-for="labelValueFor" :value="labelValue"/>
+        <InputError class="mt-2" :message="errorMessage"/>
     </div>
 </template>
