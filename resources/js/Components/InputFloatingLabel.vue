@@ -1,6 +1,7 @@
 <script setup>
 import InputLabel from "@/Components/InputLabel.vue";
 import { ref } from "vue";
+import InputError from "@/Components/InputError.vue";
 
 defineProps({
     inputType: {
@@ -22,6 +23,10 @@ defineProps({
     required: {
         type: Boolean,
     },
+    errorMessage: {
+        type: String,
+        required: true,
+    },
 });
 const model = defineModel({
     type: String,
@@ -32,7 +37,7 @@ const input = ref(null);
 </script>
 
 <template>
-    <div class="relative">
+    <div class="flex flex-col w-full relative">
         <InputText
             :type="inputType"
             :id="inputTextId"
@@ -43,5 +48,6 @@ const input = ref(null);
             :required="required"
         />
         <InputLabel :value-for="labelValueFor" :value="labelValue" />
+        <InputError class="mt-2" :message="errorMessage" />
     </div>
 </template>

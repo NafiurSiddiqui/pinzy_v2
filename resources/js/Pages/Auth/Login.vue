@@ -1,5 +1,4 @@
 <script setup>
-import InputError from "@/Components/InputError.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 import FormLayout from "@/Layouts/FormLayout.vue";
 import { ref } from "vue";
@@ -34,15 +33,6 @@ const submit = () => {
 </script>
 
 <template>
-    <header class="w-full p-2 relative">
-        <div>
-            <span
-                class="font-semibold font-caveat text-zinc-500 text-2xl desktop:ml-6 ml-4 desktop-md:text-4xl"
-            >
-                Pinzy
-            </span>
-        </div>
-    </header>
     <FormLayout>
         <Head title="Log in" />
 
@@ -55,29 +45,26 @@ const submit = () => {
         <!--            class="px-8 py-8 border-2 rounded border-zinc-400/80 w-full shadow-md mt-4 flex justify-center flex-col items-center android-md/2:w-80 tablet-md:w-[21rem] tablet-md:px-6 space-y-4"-->
         <!--        >-->
 
-        <FormPinzy>
-            <div class="flex flex-col w-full">
-                <InputFloatingLabel
-                    input-type="email"
-                    label-value="Email"
-                    label-value-for="email"
-                    input-text-id="email"
-                    v-model="form.email"
-                    required
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-            <div class="flex flex-col w-full">
-                <InputFloatingLabel
-                    input-type="password"
-                    label-value="Password"
-                    label-value-for="password"
-                    input-text-id="password"
-                    v-model="form.password"
-                    required
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
+        <FormPinzy :submission="submit">
+            <InputFloatingLabel
+                input-type="email"
+                label-value="Email"
+                label-value-for="email"
+                input-text-id="email"
+                v-model="form.email"
+                :error-message="form.errors.email"
+                required
+            />
+
+            <InputFloatingLabel
+                input-type="password"
+                label-value="Password"
+                label-value-for="password"
+                input-text-id="password"
+                v-model="form.password"
+                required
+                :error-message="form.errors.password"
+            />
 
             <div class="block mt-4">
                 <label class="flex items-center">
