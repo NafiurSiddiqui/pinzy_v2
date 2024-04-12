@@ -23,7 +23,7 @@ const submit = () => {
     <FormLayout>
         <Head title="Register"/>
 
-        <FormPinzy submission="submit">
+        <FormPinzy :submission="submit">
             <InputFloatingLabel
                 label-value="Name"
                 label-value-for="name"
